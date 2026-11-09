@@ -1,69 +1,72 @@
+import Link from "next/link";
 import Image from "next/image";
+import brandImage from "@/public/layout 3 img.png";
+import { ConcernLinks } from "@/components/store";
+import { products } from "@/lib/catalog";
+import { ProductCard } from "@/components/product-card";
+import { ProductCarousel } from "@/components/product-carousel";
+import { ShopAllButton } from "@/components/shop-all-button";
+import { CustomerReviews } from "@/components/customer-reviews";
+import { ShoppingNewsletter } from "@/components/shopping-newsletter";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main id="main-content">
+      <section className="hero">
+        <div className="hero-panel">
+          <h1>Korean skincare essentials</h1>
+          <p className="hero-subtitle">Everything you need for clear, healthy skin.</p>
+          <ShopAllButton />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      </section>
+      <div className="container concern-section">
+        <ConcernLinks decorative />
+      </div>
+      <section className="container products-section bestseller-section" aria-labelledby="bestsellers-title">
+        <div className="section-heading">
+          <h2 id="bestsellers-title">Bestseller</h2>
+        </div>
+        <ProductCarousel>
+          {products.filter(product => product.isBestseller).map(product => (
+            <ProductCard key={product.id} product={product} storefront />
+          ))}
+        </ProductCarousel>
+        <div className="text-center bestseller-shop-all">
+          <Link className="button button-outline" href="/shop">Shop All</Link>
+        </div>
+      </section>
+      <section className="brand-story" aria-labelledby="brand-story-title">
+        <div className="container brand-story-grid">
+          <div className="brand-story-copy">
+            <h2 id="brand-story-title">Discover the beauty of Korean skincare.</h2>
+            <div className="brand-story-subsection">
+              <h3>Who we are</h3>
+              <p>At Hanna K-Beauty, we&apos;re passionate about bringing you the best of Korean skincare. We carefully select products that make taking care of your skin simple, enjoyable, and effective.</p>
+            </div>
+            <div className="brand-story-subsection">
+              <h3>Why our products are special</h3>
+              <p>Korean skincare is known for its innovative formulas and gentle ingredients. Our products are carefully chosen to help tackle common skin concerns like acne, dryness, dark spots, and sensitive skin, while promoting healthier-looking skin.</p>
+            </div>
+            <div className="brand-story-subsection">
+              <h3>Why choose Hanna K-Beauty?</h3>
+              <p>Because achieving beautiful, healthy-looking skin shouldn&apos;t mean filling your bathroom with dozens of creams.</p>
+              <p>We believe the secret to great skincare is finding the <strong>right products, not more products.</strong> That&apos;s why we focus on carefully chosen essentials that help you build a simple, reliable routine tailored to your skin.</p>
+            </div>
+            <p className="brand-story-benefit"><strong>Less confusion. Fewer unnecessary products. More confidence in your skin.</strong></p>
+            <p className="brand-story-invitation"><strong>Ready to transform your skincare routine? Discover the right products for your skin today.</strong></p>
+            <Link className="button brand-story-button" href="/shop">Shop Now</Link>
+          </div>
+          <div className="brand-story-image">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src={brandImage}
+              alt="Woman beside a selection of Korean skincare essentials in warm natural light"
+              sizes="(max-width: 800px) calc(100vw - 36px), (max-width: 1050px) 40vw, 550px"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+      <CustomerReviews />
+      <ShoppingNewsletter />
+    </main>
   );
 }
