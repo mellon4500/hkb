@@ -1792,10 +1792,6 @@ h2 {
 .philosophy-grid { display:grid; grid-template-columns:1.05fr 1fr; gap:64px; align-items:center; }
 .philosophy-copy h2 { color:var(--brown); font-size:clamp(32px,3.2vw,46px); line-height:1.15; margin-bottom:22px; }
 .philosophy-copy p:not(.eyebrow) { color:var(--muted); font-size:15px; line-height:1.75; }
-.philosophy-point { margin-top:22px; }
-.philosophy-point h3 { font-size:18px; font-weight:500; color:var(--brown); margin-bottom:8px; }
-.philosophy-closing { margin-block:24px; }
-.philosophy-closing strong { color:var(--brown); font-weight:600; }
 .philosophy-image { border-radius:24px; overflow:hidden; background:var(--cream); }
 .philosophy-image img { display:block; width:100%; height:auto; }
 @media(max-width:1050px) { .philosophy-grid { gap:32px; } }
@@ -1804,9 +1800,71 @@ h2 {
  .philosophy-grid { grid-template-columns:minmax(0,1fr); gap:28px; }
  .philosophy-copy h2 { font-size:34px; margin-bottom:18px; }
  .philosophy-copy p:not(.eyebrow) { font-size:14px; line-height:1.7; }
- .philosophy-point { margin-top:20px; }
- .philosophy-point h3 { font-size:17px; }
  .philosophy-copy .button { width:100%; }
  .philosophy-image { max-height:400px; }
  .philosophy-image img { max-height:400px; object-fit:cover; }
+}
+/* Desktop navigation; compact header below 1024px retains its layout. */
+.desktop-navigation,.desktop-account { display:none; }
+.store-menu-secondary { border-top:1px solid #dfd3c5; margin-top:20px; padding-top:20px; }
+#philosophy-title { scroll-margin-top:134px; }
+@media(min-width:1024px) {
+ .retail-header-inner { width:calc(100% - 64px); max-width:1600px; height:92px; display:grid; grid-template-columns:190px minmax(0,1fr) 132px; gap:16px; }
+ .mobile-menu-trigger { display:none; }
+ .retail-logo { position:static; transform:none; justify-self:start; }
+ .retail-logo .logo { width:190px; height:64px; }
+ .desktop-navigation { display:flex; align-items:center; justify-content:center; gap:clamp(14px,1.6vw,30px); min-width:0; white-space:nowrap; font-size:13px; color:var(--foreground); }
+ .desktop-navigation > a,.concerns-dropdown summary { display:flex; align-items:center; min-height:44px; font-weight:400; }
+ .desktop-navigation > a:hover,.concerns-dropdown summary:hover { color:var(--brown); }
+ .desktop-navigation > a:hover { text-decoration:underline; text-underline-offset:6px; }
+ .retail-actions { gap:0; }
+ .desktop-account { display:grid; }
+ .concerns-dropdown { position:relative; }
+ .concerns-dropdown summary { cursor:pointer; list-style:none; gap:6px; }
+ .concerns-dropdown summary::-webkit-details-marker { display:none; }
+ .concerns-dropdown summary:focus-visible { outline:2px solid var(--brown); outline-offset:4px; }
+ .concerns-dropdown[open] summary svg { transform:rotate(180deg); }
+ .concerns-dropdown-links { position:absolute; top:calc(100% + 6px); left:-20px; min-width:220px; padding:12px; background:var(--background); border:1px solid #e4dcd2; border-radius:8px; box-shadow:0 12px 30px #34200f1a; }
+ .concerns-dropdown-links a { display:flex; align-items:center; min-height:44px; padding:10px 12px; border-radius:4px; font-size:14px; }
+ .concerns-dropdown-links a:hover { background:var(--cream); color:var(--brown); }
+ #philosophy-title { scroll-margin-top:150px; }
+}
+@media(min-width:1024px) and (max-width:1199px) {
+ .retail-header-inner { width:calc(100% - 40px); grid-template-columns:160px minmax(0,1fr) 132px; gap:12px; }
+ .retail-logo .logo { width:160px; height:54px; }
+ .desktop-navigation { font-size:12px; gap:12px; }
+}
+.coming-soon-page { padding-block:32px 72px; min-height:65vh; }
+.coming-soon-back { display:inline-flex; gap:12px; min-height:44px; align-items:center; color:var(--muted); font-size:12px; }
+.coming-soon-card { max-width:760px; margin:32px auto 0; text-align:center; background:#f3eee8; border:1px solid #e4dcd2; border-radius:24px; padding:56px 48px; }
+.coming-soon-icon { display:grid; place-items:center; width:76px; height:76px; margin:0 auto 28px; border:1px solid #d8b99c; border-radius:50%; color:var(--brown); }
+.coming-soon-card h1 { font-size:clamp(34px,4vw,50px); letter-spacing:-1px; color:var(--brown); margin-bottom:24px; }
+.coming-soon-lead { font-size:18px; line-height:1.6; margin-bottom:12px; }
+.coming-soon-detail { max-width:530px; margin:0 auto 28px; font-size:15px; color:var(--muted); line-height:1.8; }
+.coming-soon-card .button { border-radius:6px; }
+@media(max-width:640px) {
+ .coming-soon-page { padding-block:20px 40px; }
+ .coming-soon-card { margin-top:20px; padding:36px 22px; border-radius:18px; }
+ .coming-soon-card .button { width:100%; }
+}
+
+/* Concise philosophy copy and the brand's signature message. */
+.philosophy-description { margin-top:18px; }
+.philosophy-copy p.philosophy-slogan { color:var(--brown); font-size:clamp(28px,2.7vw,40px); font-weight:600; line-height:1.18; letter-spacing:-.7px; margin-block:28px; max-width:460px; }
+.philosophy-slogan strong { font-weight:600; }
+@media(max-width:800px) {
+ .philosophy-description { margin-top:16px; }
+ .philosophy-copy p.philosophy-slogan { margin-block:24px; font-size:30px; }
+}
+/* Unified mobile hero: original photography, basket-focused crop, soft fade. */
+@media(max-width:1023px) {
+ .hero { --mobile-hero-image-height:clamp(350px,105vw,480px); display:block; min-height:0; padding:0 0 32px; background:var(--background); }
+ .hero::before { content:""; display:block; height:var(--mobile-hero-image-height); background-image:url('/hbk-banner-clean.png'); background-repeat:no-repeat; background-size:cover; background-position:right center; }
+ .hero::after { content:""; position:absolute; top:calc(var(--mobile-hero-image-height) - 110px); inset-inline:0; height:112px; background:linear-gradient(to bottom,transparent 0%,#faf9f650 28%,#faf9f6c9 65%,var(--background) 100%); pointer-events:none; }
+ .hero .hero-panel { position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; width:100%; max-width:none; height:auto; margin-top:-4px; padding:0 18px; background:transparent; border:0; border-radius:0; box-shadow:none; text-align:center; }
+ .hero h1 { max-width:600px; margin:0 0 14px; font-size:clamp(36px,9.6vw,46px); font-weight:500; line-height:1.12; letter-spacing:-1.2px; white-space:normal; }
+ .hero .hero-subtitle { max-width:420px; margin:0 0 24px; font-size:16px; line-height:1.6; }
+ .hero .hero-shop { width:100%; min-height:60px; padding:16px 24px; border-radius:9999px; background:#854820; color:#fff; font-size:16px; font-weight:600; line-height:1.4; }
+ .hero .hero-shop:hover { background:#63351a; }
+ .hero-shop span { display:none; }
 }

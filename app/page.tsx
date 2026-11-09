@@ -38,11 +38,9 @@ export default function Home() {
           <div className="philosophy-copy">
             <p className="eyebrow">THE KOREAN BEAUTY PHILOSOPHY</p>
             <h2 id="philosophy-title">Why Korean Skincare?</h2>
-            <p className="philosophy-intro">Korean skincare has transformed the way people approach beauty. Instead of focusing only on correcting skin problems, it emphasizes maintaining healthy, hydrated skin through consistent, gentle care.</p>
-            <div className="philosophy-point"><h3>Innovation Meets Gentle Care</h3><p>Korean beauty brands are known for exploring innovative ingredients, lightweight textures, and carefully developed formulations. The goal is effective skincare that feels comfortable enough to become part of your everyday routine.</p></div>
-            <div className="philosophy-point"><h3>Prevention, Not Just Correction</h3><p>One of the defining ideas behind Korean skincare is caring for your skin before problems become more noticeable. Hydration, protecting the skin barrier, and daily sun protection are central to this philosophy.</p></div>
-            <div className="philosophy-point"><h3>Skincare Tailored to You</h3><p>Beautiful skin doesn&apos;t require a complicated ten-step routine. What matters is choosing products that suit your skin type and address your individual concerns.</p></div>
-            <p className="philosophy-closing">At Hanna K-Beauty, we believe great skincare starts with the <strong>right products, not more products.</strong></p>
+            <p className="philosophy-intro">Korean skincare embraces a simple philosophy: beautiful skin begins with healthy skin.</p>
+            <p className="philosophy-description">Inspired by nature and enhanced by modern skincare innovation, Korean beauty products are known for their botanical ingredients, gentle formulations, and focus on hydration. Rather than masking imperfections, they aim to nourish the skin, support its natural protective barrier, and bring out its natural radiance.</p>
+            <p className="philosophy-slogan"><strong>Healthy Skin Is Beautiful Skin.</strong></p>
             <Link className="button" href="/shop">Shop All <span aria-hidden="true">&#8599;</span></Link>
           </div>
           <div className="philosophy-image"><Image src={brandImage} alt="Woman beside Korean skincare essentials in warm natural light" sizes="(max-width: 800px) 100vw, 45vw" /></div>
