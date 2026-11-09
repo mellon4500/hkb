@@ -26,7 +26,7 @@ export function ShoppingNewsletter() {
 
   return (
     <section className="shopping-newsletter" aria-label="Shopping and newsletter">
-      <div className="container shopping-newsletter-actions">
+      <div className="container final-cta-copy"><p className="eyebrow">Find your everyday essentials</p><h2>A simpler routine starts here.</h2><p>Thoughtfully chosen Korean skincare, for your skin.</p></div><div className="container shopping-newsletter-actions">
         <button type="button" className="shopping-newsletter-button newsletter-trigger" onClick={openNewsletter} aria-haspopup="dialog">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></svg>
           Newsletter

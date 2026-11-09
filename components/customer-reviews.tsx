@@ -31,23 +31,24 @@ const reviews = [
   },
 ];
 
-export function CustomerReviews() {
+export function CustomerReviews({ second = false }: { second?: boolean }) {
+  const titleId = second ? "more-reviews-title" : "customer-reviews-title";
   return (
-    <section className="customer-reviews" aria-labelledby="customer-reviews-title">
+    <section className={`customer-reviews ${second ? "reviews-second" : "reviews-first"}`} aria-labelledby={titleId}>
       <div className="container">
         <div className="customer-reviews-heading">
-          <h2 id="customer-reviews-title">Loved by Our Customers</h2>
+          <p className="eyebrow">{second ? "A little care, every day" : "From our community"}</p><h2 id={titleId}>{second ? "Skincare that feels personal" : "Loved by Our Customers"}</h2>
           <p>Real experiences from people who love Korean skincare.</p>
         </div>
-        <div className="customer-reviews-grid">
-          {reviews.map(review => (
+        <div className="customer-reviews-grid" role="region" aria-label="Customer testimonials; swipe to explore" tabIndex={0}>
+          {reviews.slice(second ? 3 : 0, second ? 6 : 3).map(review => (
             <figure className="customer-review" key={review.name}>
               <svg className="customer-review-quote" width="32" height="28" viewBox="0 0 32 28" fill="currentColor" aria-hidden="true">
                 <path d="M3 4h11v10L8 24H3l5-10H3V4Zm16 0h11v10l-6 10h-5l5-10h-5V4Z" />
               </svg>
               <blockquote lang="ro"><p>{review.text}</p></blockquote>
               <figcaption>
-                <div className="customer-review-stars" role="img" aria-label="5 out of 5 stars"><span aria-hidden="true">★ ★ ★ ★ ★</span></div>
+                <div className="customer-review-stars" aria-hidden="true"><span aria-hidden="true">★ ★ ★ ★ ★</span></div>
                 <p className="customer-review-name">{review.name}</p>
                 {review.platform && <p className="customer-review-platform">{review.platform}</p>}
               </figcaption>

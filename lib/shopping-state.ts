@@ -32,3 +32,10 @@ export function useDemoCart(productId: string, unitPriceRON: number) {
   };
   return { add, ...calculateDemoCartLine(unitPriceRON, quantity) };
 }
+
+export function useCartSummary() {
+  const snapshot = useSyncExternalStore(subscribe, () => JSON.stringify([...cart]), () => "[]");
+  const items: [string, number][] = JSON.parse(snapshot);
+  return { items, count: items.reduce((sum, [, quantity]) => sum + quantity, 0),
+    remove: (id: string) => { cart.delete(id); emit(); } };
+}
