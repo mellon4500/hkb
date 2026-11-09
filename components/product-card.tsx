@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatPrice, type Product } from "@/lib/catalog";
+import { ProductFavourite } from "./product-favourite";
+
+import { ProductRating } from "./product-rating";
 
 export function ProductPrice({ product }: { product: Product }) {
   return (
@@ -33,6 +36,7 @@ export function ProductCard({ product, storefront = false }: { product: Product;
           {storefront ? <>
             <h3>{product.brand} - {product.name}</h3>
             <span className="storefront-price">{formatPrice(product.regularPriceRON)}</span>
+            <ProductRating productId={product.id} />
           </> : <>
             <p className="product-brand">{product.brand}</p>
             <h3>{product.name}</h3>
@@ -40,6 +44,9 @@ export function ProductCard({ product, storefront = false }: { product: Product;
           </>}
         </div>
       </Link>
+      {storefront && <div className="product-favourite-overlay">
+        <ProductFavourite productId={product.id} name={`${product.brand} ${product.name}`} />
+      </div>}
     </article>
   );
 }

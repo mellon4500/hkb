@@ -12,11 +12,11 @@ export function Logo() {
         <span className="logo-text">hanna<span>K-BEAUTY</span></span>
       ) : (
         <Image
-          src="/logo.jfif"
+          src="/Watercolour Cherry Blossom Beauty Logo.png"
           alt="Hanna K-Beauty"
-          width={68}
-          height={68}
-          sizes="(max-width: 640px) 54px, 68px"
+          width={2172}
+          height={724}
+          sizes="(max-width: 640px) 174px, 204px"
           onError={() => setFailed(true)}
         />
       )}
